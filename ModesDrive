@@ -1,0 +1,56 @@
+
+using namespace std;
+
+#include<iostream>
+#include<string>
+
+struct ParametrosVehiculo {
+    float inyeccionCombustible;
+    int cambioMarcha;
+    float alturaSuspension;
+    float durezaSuspension;
+    std::string traccionLlantas;
+};
+
+void cambiarModoManejo(std::string modo, ParametrosVehiculo& parametros) {
+    if (modo == "sport") {
+        parametros.inyeccionCombustible = 1.2;
+        parametros.cambioMarcha = 5000;
+        parametros.alturaSuspension = 0.8;
+        parametros.durezaSuspension = 0.9;
+        parametros.traccionLlantas = "total";
+    }
+    else if (modo == "eco") {
+        parametros.inyeccionCombustible = 0.8;
+        parametros.cambioMarcha = 3000;
+        parametros.alturaSuspension = 1.0;
+        parametros.durezaSuspension = 0.7;
+        parametros.traccionLlantas = "delantera";
+    }
+    else if (modo == "confort") {
+        parametros.inyeccionCombustible = 1.0;
+        parametros.cambioMarcha = 4000;
+        parametros.alturaSuspension = 1.2;
+        parametros.durezaSuspension = 0.5;
+        parametros.traccionLlantas = "total";
+    }
+    else if (modo == "ahorrador") {
+        parametros.inyeccionCombustible = 0.7;
+        parametros.cambioMarcha = 2000;
+        parametros.alturaSuspension = 1.0;
+        parametros.durezaSuspension = 0.6;
+        parametros.traccionLlantas = "trasera";
+    }
+    else {
+        std::cout << "Modo de manejo no reconocido" << std::endl;
+    }
+}
+
+int main() {
+    ParametrosVehiculo parametros;
+    std::string modo;
+    std::cout << "Introduce el modo de manejo: ";
+    std::cin >> modo;
+    cambiarModoManejo(modo, parametros);
+
+}
